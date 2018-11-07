@@ -32,3 +32,8 @@ class TrackedItem(db.Model):
 
     def __repr__(self):
         return "<TrackedItem {}>".format(self.title)
+
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
